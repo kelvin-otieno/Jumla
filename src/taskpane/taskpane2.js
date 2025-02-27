@@ -5,13 +5,13 @@
 
 /* global document, Office */
 
-Office.onReady((info) => {
-    if (info.host === Office.HostType.Outlook) {
-      document.getElementById("sideload-msg").style.display = "none";
-      document.getElementById("app-body").style.display = "flex";
-      document.getElementById("run").onclick = run;
-    }
-  });
+// Office.onReady((info) => {
+//     if (info.host === Office.HostType.Outlook) {
+//       document.getElementById("sideload-msg").style.display = "none";
+//       document.getElementById("app-body").style.display = "flex";
+//       document.getElementById("run").onclick = run;
+//     }
+//   });
   
  async function run() {
     /**
@@ -19,6 +19,12 @@ Office.onReady((info) => {
      */
     document.getElementById("run").innerHTML = "Tracking.....";
     const item = Office.context.mailbox.item;
+    var userProfile = Office.context.mailbox.userProfile;
+        
+    // Get the user's email address
+    var userEmailAddress = userProfile.emailAddress;
+    console.log("User's email address: " + userEmailAddress);
+
     let insertAt = document.getElementById("item-subject");
   
     // insertAt.appendChild(document.createElement("br"));
@@ -49,6 +55,7 @@ Office.onReady((info) => {
           recipientfullname: recipientfullname,
           subject: subject,
           description: result.value,
+          useremailaddress: userEmailAddress,
           trackingid: trackingid,
         });
   
