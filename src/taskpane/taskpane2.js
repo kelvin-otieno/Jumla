@@ -39,20 +39,18 @@
     console.log(item);
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    const sender = item.from.emailAddress;
-    const senderfullname = item.from.displayName;
+    const from = item.from;
+    const to = item.to;
+    const cc = item.cc;
     const subject = item.subject;
     const trackingid = item.conversationId;
-    const recipient = item.to[0].emailAddress;
-    const recipientfullname = item.to[0].displayName;
     item.body.getAsync("html", function (result) {
       if (result.status === Office.AsyncResultStatus.Succeeded) {
         // Successfully retrieved the email body
         const raw = JSON.stringify({
-          sender: sender,
-          recipient: recipient,
-          senderfullname: senderfullname,
-          recipientfullname: recipientfullname,
+          from: from,
+          to: to,
+          cc: cc,
           subject: subject,
           description: result.value,
           useremailaddress: userEmailAddress,
