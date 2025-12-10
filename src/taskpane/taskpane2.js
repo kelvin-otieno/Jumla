@@ -67,7 +67,7 @@
         };
   
         fetch(
-          "https://prod-01.westeurope.logic.azure.com:443/workflows/a1a72d0bb7d9448f8da9f95bfa768fd6/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=e8aJNn3Z_9bETEKw71wB8cBnXhWlM67Dn2k4hFiMKrg",
+          "https://a26068ef5a2445e0ad4ddab310c157.f9.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/a1a72d0bb7d9448f8da9f95bfa768fd6/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=SEivYIWI91pJ1IWu8Jr2T-GiziUTSUNkSi-7IY0wGtk",
           requestOptions
         )
           .then((response) => {
